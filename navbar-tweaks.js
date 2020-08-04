@@ -3,6 +3,8 @@
 
 'use strict';
 
+import {libWrapper} from './shim.js';
+
 Hooks.on('ready', () => {
 	const MODULE_NAME = "Navbar Tweaks";
 	const MODULE_ID = "navbar-tweaks";
@@ -55,7 +57,7 @@ Hooks.on('ready', () => {
 
 	//---------------------------
 	// Hook SceneNavigation methods and implement the main module functionality
-	new ResilientWrapper(SceneNavigation.prototype, 'render', function(wrapper, ...args) {
+	libWrapper.register(MODULE_ID, 'SceneNavigation.prototype.render', function(wrapper, ...args) {
 		const neededRole = parseInt(getSetting('navbar-role'));
 
 		if(neededRole === 0 || neededRole && (neededRole >= 5 || !game.user.hasRole(neededRole))) {
@@ -66,7 +68,7 @@ Hooks.on('ready', () => {
 		return wrapper.apply(this, args);
 	});
 
-	new ResilientWrapper(SceneNavigation.prototype, 'getData', function(wrapper, ...args) {
+	libWrapper.register(MODULE_ID, 'SceneNavigation.prototype.getData', function(wrapper, ...args) {
 		let result = wrapper.apply(this, args);
 
 		let navNameRole = parseInt(getSetting('nav-name-role'));
@@ -78,7 +80,7 @@ Hooks.on('ready', () => {
 		}
 
 		return result;
-	});
+	}, 'WRAPPER');
 
 
 	resetNavbar();

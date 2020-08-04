@@ -15,3 +15,8 @@ Module for Foundry VTT that provides some tweaks for the navbar.
     > https://github.com/ruipin/fvtt-navbar-tweaks/releases/latest/download/module.json
 
 2. Enable the Module in your World's Module Settings
+
+
+### libWrapper
+
+This module uses the [libWrapper](https://github.com/ruipin/fvtt-lib-wrapper) library for wrapping core methods. While this is not a hard dependency, it is recommended to install it for the best experience and compatibility with other modules.
