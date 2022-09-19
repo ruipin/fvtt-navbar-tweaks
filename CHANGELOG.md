@@ -1,3 +1,8 @@
+# 1.0.7.0 (2022-09-19)
+
+- Update libWrapper shim to latest version.
+- Explicitly announce compatibility with Foundry v10.
+
 # 1.0.6.0 (2021-12-13)
 
 - Update libWrapper shim to latest version.

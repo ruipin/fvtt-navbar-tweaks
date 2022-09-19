@@ -1,1 +1,3 @@
-/navbar-tweaks.lock
+/node_modules
+/dist
+/*.lock
